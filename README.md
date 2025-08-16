@@ -157,6 +157,7 @@ k6 run --threshold http_req_duration=p(95)<1000 src/basic-scenario/ping-stages.j
 ```
 
 # Custom thresholds
+```
 k6 run --threshold http_req_duration=p(95)<1000 src/basic-scenario/ping-stages.js
 ```
 
