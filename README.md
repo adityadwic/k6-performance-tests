@@ -20,6 +20,7 @@ k6-script/
 ├── README.md                       # Main project documentation
 └── src/
     ├── basic-scenario/             # 📂 Foundation Testing Patterns
+    │   ├── basic-loadTest.js       # Basic load testing example
     │   ├── create-contact.js       # Contact creation performance test
     │   ├── ping-stages.js          # 7-stage comprehensive testing suite
     │   ├── register.js             # User registration performance test
@@ -42,6 +43,7 @@ k6-script/
 
 ### 🔧 Basic Scenarios (`src/basic-scenario/`)
 Foundation performance tests for core functionality:
+- **Basic Load Test**: Simple load testing example with QuickPizza demo
 - **User Registration**: Account creation and validation workflows
 - **Contact Creation**: Contact management performance testing  
 - **Multi-Scenario**: Combined user and contact workflows
@@ -65,10 +67,11 @@ brew install k6  # macOS
 # or check Installation section for other OS
 
 # Basic performance testing
-k6 run src/basic-scenario/ping-stages.js    # 7-stage comprehensive test
-k6 run src/basic-scenario/register.js       # User registration test
-k6 run src/basic-scenario/create-contact.js # Contact creation test
-k6 run src/basic-scenario/scenario.js       # Combined workflows
+k6 run src/basic-scenario/basic-loadTest.js    # Basic load testing example
+k6 run src/basic-scenario/ping-stages.js       # 7-stage comprehensive test
+k6 run src/basic-scenario/register.js          # User registration test
+k6 run src/basic-scenario/create-contact.js    # Contact creation test
+k6 run src/basic-scenario/scenario.js          # Combined workflows
 
 # Advanced load testing
 k6 run src/loadtest/smoke-test.js           # Quick validation (1 min)
@@ -79,9 +82,14 @@ k6 run src/loadtest/complex-scenario-test.js # Real-world simulation (30 min)
 
 ## 🎯 Test Scenarios
 
-## 🎯 Test Scenarios
+### 1. **Basic Load Test** (`basic-scenario/basic-loadTest.js`)
+Simple load testing example for external websites:
+- **QuickPizza Demo**: External website performance testing
+- **Homepage Load**: Basic accessibility and response time testing
+- **User Journey**: Simple navigation and interaction simulation
+- **Performance Metrics**: Response time, throughput, error rate analysis
 
-### 1. **7-Stage Comprehensive** (`basic-scenario/ping-stages.js`)
+### 2. **7-Stage Comprehensive** (`basic-scenario/ping-stages.js`)
 Seven essential performance tests in one script:
 - **Ramping**: Gradual load increase/decrease
 - **Spike**: Sudden traffic surge simulation  
@@ -91,28 +99,28 @@ Seven essential performance tests in one script:
 - **Volume**: Large data processing
 - **Breakpoint**: Maximum capacity identification
 
-### 2. **User Registration Flow** (`basic-scenario/register.js`)
+### 3. **User Registration Flow** (`basic-scenario/register.js`)
 Complete user registration workflow testing:
 - Account creation validation
 - Authentication flow testing
 - User data verification
 - Performance under registration load
 
-### 3. **Contact Management** (`basic-scenario/create-contact.js`)
+### 4. **Contact Management** (`basic-scenario/create-contact.js`)
 Contact creation and management performance:
 - Contact creation workflows
 - Authentication token handling
 - Data validation testing
 - CRUD operation performance
 
-### 4. **Multi-Scenario Testing** (`basic-scenario/scenario.js`)
+### 5. **Multi-Scenario Testing** (`basic-scenario/scenario.js`)
 Combined user and contact workflows:
 - Parallel user registration and contact creation
 - Real-world usage simulation
 - Cross-workflow performance impact
 - Integrated system testing
 
-### 5. **Advanced Load Testing Suite** (`loadtest/`)
+### 6. **Advanced Load Testing Suite** (`loadtest/`)
 Comprehensive production-ready testing:
 - **Smoke Test**: Basic validation (2 VUs, 1 min)
 - **Average Load**: Normal conditions (15 VUs, 21 min)
@@ -122,25 +130,11 @@ Comprehensive production-ready testing:
 - **Breakpoint Test**: Capacity limits (10→300 VUs)
 - **Complex Scenario**: Multi-pattern simulation (7 scenarios, 30 min)
 
-### 2. **Login Performance** (`login-only-test.js`) - 10 seconds
-Focused API authentication testing with 100% success rate validation.
-
-### 3. **Comprehensive Testing** (`comprehensive-performance-test.js`) - Variable
-Seven parallel scenarios simulating different load patterns:
-- Baseline, Peak, Stress, Spike, Volume, Endurance, Capacity testing
-
-### 4. **Concurrent Users** (`concurrent-users-test.js`) - 5 minutes
-Real-world user behavior simulation:
-- Morning rush, lunch break, evening peak, background activity
-
-### 5. **Reliability Testing** (`reliability-test.js`) - 16 minutes
-System resilience under failure conditions:
-- Connection reliability, timeout handling, recovery, data integrity
-
 ## 📊 Usage Examples
 
 ```bash
 # Basic scenario testing
+k6 run src/basic-scenario/basic-loadTest.js           # Basic load testing example
 k6 run src/basic-scenario/ping-stages.js               # 7-stage comprehensive test
 k6 run src/basic-scenario/register.js                 # User registration performance
 k6 run src/basic-scenario/create-contact.js           # Contact creation performance
@@ -157,6 +151,10 @@ k6 run src/loadtest/complex-scenario-test.js          # Real-world simulation (3
 
 # Generate detailed reports
 k6 run --out json=report.json src/loadtest/stress-test.js
+
+# Custom thresholds
+k6 run --threshold http_req_duration=p(95)<1000 src/basic-scenario/ping-stages.js
+```
 
 # Custom thresholds
 k6 run --threshold http_req_duration=p(95)<1000 src/basic-scenario/ping-stages.js
