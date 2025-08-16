@@ -168,6 +168,7 @@ Enable real-time monitoring during test execution:
 # Enable web dashboard (available at http://127.0.0.1:5665)
 K6_WEB_DASHBOARD=true k6 run src/loadtest/stress-test.js
 ```
+<img width="1439" height="855" alt="Web Dashboard - K6" src="https://github.com/user-attachments/assets/eec67e40-666d-47ee-9713-3774eda85a07" />
 
 ### 📈 Grafana Dashboard  
 Export results for advanced visualization:
@@ -178,6 +179,8 @@ k6 run --out influxdb=http://localhost:8086/k6 src/loadtest/average-load-test.js
 # Export to Grafana Cloud
 k6 run --out cloud src/loadtest/complex-scenario-test.js
 ```
+<img width="1439" height="776" alt="Grafana Dashboard" src="https://github.com/user-attachments/assets/05687f4d-64bc-4e20-9ce5-6a780eec071e" />
+<img width="1439" height="775" alt="grafana-Dashboard-2" src="https://github.com/user-attachments/assets/20d33089-51b1-4dc8-b558-b9082752bdca" />
 
 > 📸 **Report Screenshots**: Test execution reports and dashboard visualizations are included in the repository for reference.
 
@@ -280,7 +283,3 @@ Monitor these essential metrics:
 - [k6 Documentation](https://k6.io/docs/)
 - [k6 Examples](https://github.com/grafana/k6/tree/master/examples)
 - [Performance Testing Guide](https://k6.io/docs/testing-guides/)
-
-## 📄 License
-
-MIT License - see LICENSE
